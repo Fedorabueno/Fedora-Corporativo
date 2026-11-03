@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedora™ Academy · Propuesta Comercial Corporativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f4f8fb;
+            color: #1a2a3a;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .main-header {
+            background: linear-gradient(145deg, #0b2b4a, #1a4b6d);
+            padding: 3rem 2.5rem;
+            border-radius: 32px;
+            color: white;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .main-header h1 span {
+            color: #7fd1db;
+        }
+
+        .main-header .contact-info {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .main-header .contact-info a {
+            color: #b3e4ed;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 0.3rem;
+        }
+
+        .main-header .contact-info a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .main-header .contact-info .catalog-link {
+            background: #00a3b2;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .main-header .contact-info .catalog-link:hover {
+            background: #008694;
+            text-decoration: none;
+        }
+
+        /* BARRA DE ACCIÓN */
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .action-bar .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-calendly {
+            background: #006bff;
+            color: white;
+        }
+        .btn-calendly:hover {
+            background: #0052cc;
+            transform: scale(1.02);
+        }
+
+        .btn-catalogo {
+            background: #00a3b2;
+            color: white;
+        }
+        .btn-catalogo:hover {
+            background: #008694;
+            transform: scale(1.02);
+        }
+
+        .btn-whatsapp-header {
+            background: #25d366;
+            color: white;
+        }
+        .btn-whatsapp-header:hover {
+            background: #1da851;
+            transform: scale(1.02);
+        }
+
+        /* SECCIONES */
+        .section-block {
+            background: white;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9f0f6;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-desc {
+            color: #3d5d78;
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+            border-left: 4px solid #00a3b2;
+            padding-left: 1rem;
+            background: #f7fafc;
+            border-radius: 0 12px 12px 0;
+            padding: 0.7rem 1.2rem;
+        }
+
+        /* SECCIÓN CATÁLOGO */
+        .catalogo-block {
+            background: linear-gradient(145deg, #e8f6f9, #f0fbfd);
+            border: 2px solid #00a3b2;
+            text-align: center;
+        }
+
+        .catalogo-block h2 {
+            color: #0b2b4a;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .catalogo-block p {
+            color: #3d5d78;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 1.8rem;
+            line-height: 1.7;
+        }
+
+        .btn-catalogo-grande {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.2s;
+            background: #00a3b2;
+            color: white;
+        }
+
+        .btn-catalogo-grande:hover {
+            background: #008694;
+            transform: scale(1.02);
+        }
+
+        /* PLANES */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .plan-card {
+            background: #f9fcff;
+            border-radius: 22px;
+            padding: 2rem 1.5rem;
+            border: 1px solid #e3ecf5;
+            display: flex;
+            flex-direction: column;
+            transition: 0.2s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 112, 186, 0.12);
+        }
+
+        .plan-card.destacado {
+            border: 2px solid #0070ba;
+            background: #f0f7ff;
+            position: relative;
+        }
+
+        .plan-card.destacado::before {
+            content: "MÁS ELEGIDO";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0070ba;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin-bottom: 0.2rem;
+        }
+
+        .plan-card .plan-target {
+            font-size: 0.85rem;
+            color: #4a6a85;
+            margin-bottom: 1rem;
+        }
+
+        .plan-card .plan-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0070ba;
+            margin-bottom: 0.2rem;
+        }
+
+        .plan-card .plan-price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #4a6a85;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-card ul li {
+            font-size: 0.9rem;
+            color: #3a5a75;
+            padding: 0.35rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .plan-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00a3b2;
+            font-weight: 700;
+        }
+
+        .btn-plan {
+            display: inline-block;
+            text-align: center;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.2s;
+            background: #0070ba;
+            color: white;
+        }
+
+        .btn-plan:hover {
+            background: #005c9e;
+            transform: scale(1.02);
+        }
+
+        /* SECCIÓN CONTRATISTAS */
+        .contratistas-block {
+            border-left: 8px solid #d48f2b;
+            background: #fffdf7;
+        }
+
+        .contratistas-block .section-title {
+            color: #7a4d12;
+        }
+
+        .contratistas-block .section-desc {
+            border-left-color: #d48f2b;
+        }
+
+        .contratistas-content {
+            font-size: 1rem;
+            color: #3a5a75;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contratistas-content p {
+            margin-bottom: 1rem;
+        }
+
+        .contratistas-cta {
+            background: #f3ede4;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .contratistas-cta p {
+            font-weight: 600;
+            color: #4f3a1c;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-whatsapp-grande {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: 0.2s;
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp-grande:hover {
+            background: #1da851;
+            transform: scale(1.02);
+        }
+
+        /* SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            background: #f9fcff;
+            border-radius: 16px;
+            padding: 1.5rem 1.2rem;
+            border: 1px solid #e3ecf5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0b2b4a;
+            margin-bottom: 0.4rem;
+        }
+
+        .service-item p {
+            font-size: 0.88rem;
+            color: #3a5a75;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+            flex-grow: 1;
+        }
+
+        .service-item .price {
+            font-weight: 700;
+            color: #0b2b4a;
+            background: #e5f0f5;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            display: inline-block;
+            align-self: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-service {
+            display: inline-block;
+            text-align: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: 0.2s;
+            background: #0070ba;
+            color: white;
+        }
+
+        .btn-service:hover {
+            background: #005c9e;
+            transform: scale(1.02);
+        }
+
+        /* CONDICIONES */
+        .conditions {
+            background: #eef6f9;
+            padding: 1.5rem 1.8rem;
+            border-radius: 16px;
+        }
+
+        .conditions h3 {
+            font-size: 1.2rem;
+            color: #0b2b4a;
+            margin-bottom: 0.8rem;
+        }
+
+        .conditions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .conditions ul li {
+            font-size: 0.92rem;
+            color: #3a5a75;
+            padding: 0.35rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .conditions ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0070ba;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            background: linear-gradient(145deg, #0b2b4a, #1a4b6d);
+            border-radius: 28px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-final h2 {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-final p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 1.8rem;
+        }
+
+        .cta-final .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 2rem 0 0.5rem;
+            color: #5a7a94;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #00a3b2;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 0.6rem;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 2rem 1.5rem;
+            }
+            .main-header h1 {
+                font-size: 2.2rem;
+            }
+            .main-header .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .plans-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .action-bar .btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="main-header">
+            <h1>📘 Fedora™ <span>Academy</span></h1>
+            <div class="contact-info">
+                📧 <a href="mailto:fedorabueno@gmail.com">fedorabueno@gmail.com</a>
+                📱 <a href="https://wa.me/18493536710" target="_blank">+1 (849) 353-6710</a>
+                <a href="https://fedorabueno.github.io/Fedora-Academy/" target="_blank" class="catalog-link">📚 Catálogo</a>
+                <a href="https://fedora-academy.lovable.app" target="_blank" class="catalog-link" style="background: #0070ba;">🛒 Comercial</a>
+            </div>
+        </header>
+
+        <!-- BARRA DE ACCIÓN -->
+        <div class="action-bar">
+            <a href="[ENLACE_CALENDLY]" target="_blank" class="btn btn-calendly">
+                📅 Agendar reunión con Calendly
+            </a>
+            <a href="https://fedora-academy.lovable.app" target="_blank" class="btn btn-catalogo">
+                🛒 Ver catálogo comercial
+            </a>
+            <a href="https://fedorabueno.github.io/Fedora-Academy/" target="_blank" class="btn btn-catalogo" style="background: #0b2b4a;">
+                📚 Ver catálogo académico
+            </a>
+            <a href="https://wa.me/18493536710?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20oferta%20corporativa%20de%20Fedora%20Academy" target="_blank" class="btn btn-whatsapp-header">
+                💬 Contactar por WhatsApp
+            </a>
+        </div>
+
+        <!-- TÍTULO DE LA PROPUESTA -->
+        <div class="section-block" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; color: #0b2b4a; margin-bottom: 1rem;">Propuesta Comercial Corporativa</h2>
+            <p style="font-size: 1.1rem; color: #3d5d78; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                Fedora™ Academy pone a disposición de su empresa un catálogo de <strong>94 programas de formación</strong> organizados en <strong>14 escuelas</strong>, con precios corporativos diseñados para equipos de todos los tamaños. Todos nuestros programas incluyen material descargable, evaluación y certificado de participación.
+            </p>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN: CATÁLOGO COMERCIAL                              -->
+        <!-- ========================================================= -->
+        <div class="section-block catalogo-block">
+            <h2>📚 Explora nuestro catálogo completo</h2>
+            <p>
+                Antes de elegir un plan, te invitamos a conocer en detalle todos nuestros programas: escuelas, contenidos, modalidades y beneficios. Ingresa al catálogo comercial y descubre la formación que transformará a tu equipo.
+            </p>
+            <a href="https://fedora-academy.lovable.app" target="_blank" class="btn-catalogo-grande">
+                🛒 Ver catálogo comercial completo
+            </a>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN: PLANES CORPORATIVOS                              -->
+        <!-- ========================================================= -->
+        <div class="section-block">
+            <div class="section-title">🏢 Planes Corporativos</div>
+            <div class="section-desc">
+                Elige el plan que mejor se adapte al tamaño y las necesidades de tu organización. Los precios incluyen acceso a la plataforma por 12 meses.
+            </div>
+
+            <div class="plans-grid">
+
+                <!-- Plan Starter -->
+                <div class="plan-card">
+                    <h3>Plan Starter</h3>
+                    <div class="plan-target">PyMEs · 10 a 50 empleados</div>
+                    <div class="plan-price">USD 300 <small>/ año</small></div>
+                    <div style="font-size: 0.8rem; color: #4a6a85; margin-bottom: 0.5rem;">USD 60 por licencia</div>
+                    <ul>
+                        <li>5 licencias de cursos a elección</li>
+                        <li>1 diagnóstico de brechas de competencias</li>
+                        <li>Reporte de avance trimestral</li>
+                        <li>Acceso a plataforma por 12 meses</li>
+                        <li>Soporte por correo y WhatsApp</li>
+                    </ul>
+                    <a href="https://www.paypal.com/ncp/payment/KQ9T38ZK45YYL" target="_blank" class="btn-plan">💳 Pagar Plan Starter</a>
+                </div>
+
+                <!-- Plan Business -->
+                <div class="plan-card destacado">
+                    <h3>Plan Business</h3>
+                    <div class="plan-target">Medianas empresas · 51 a 200 empleados</div>
+                    <div class="plan-price">USD 750 <small>/ año</small></div>
+                    <div style="font-size: 0.8rem; color: #4a6a85; margin-bottom: 0.5rem;">USD 50 por licencia</div>
+                    <ul>
+                        <li>15 licencias de cursos a elección</li>
+                        <li>1 programa de especialización (3 cursos)</li>
+                        <li>Dashboard de KPIs de formación</li>
+                        <li>Diagnóstico de brechas incluido</li>
+                        <li>Sesión de cierre con instructor</li>
+                        <li>Acceso a plataforma por 12 meses</li>
+                        <li>Soporte prioritario</li>
+                    </ul>
+                    <a href="https://www.paypal.com/ncp/payment/ZZ3H4LW83YYRG" target="_blank" class="btn-plan">💳 Pagar Plan Business</a>
+                </div>
+
+                <!-- Plan Enterprise -->
+                <div class="plan-card">
+                    <h3>Plan Enterprise</h3>
+                    <div class="plan-target">Grandes empresas · +200 empleados</div>
+                    <div class="plan-price">USD 1,200 <small>/ año</small></div>
+                    <div style="font-size: 0.8rem; color: #4a6a85; margin-bottom: 0.5rem;">USD 40 por licencia</div>
+                    <ul>
+                        <li>30 licencias de cursos a elección</li>
+                        <li>2 programas de especialización</li>
+                        <li>Ruta formativa personalizada por rol</li>
+                        <li>Reporte ejecutivo trimestral</li>
+                        <li>Soporte prioritario</li>
+                        <li>Acceso a plataforma por 12 meses</li>
+                    </ul>
+                    <a href="https://www.paypal.com/ncp/payment/L2BT7DXAZNNNG" target="_blank" class="btn-plan">💳 Pagar Plan Enterprise</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN: PROGRAMA PARA CONTRATISTAS Y SUBCONTRATISTAS     -->
+        <!-- ========================================================= -->
+        <div class="section-block contratistas-block">
+            <div class="section-title">🏗️ Programa Corporativo de Formación para Contratistas y Subcontratistas</div>
+            <div class="section-desc">
+                Capacitación especializada para empresas contratistas y subcontratistas que participan en proyectos de construcción, ingeniería, industria y servicios.
+            </div>
+            <div class="contratistas-content">
+                <p>
+                    Programa de capacitación diseñado para empresas contratistas y subcontratistas que participan en proyectos de construcción, ingeniería, industria y servicios. Su objetivo es fortalecer las competencias del personal operativo, técnico y administrativo mediante itinerarios formativos en Seguridad y Salud en el Trabajo (SST), Prevención de Riesgos Laborales, Gestión Ambiental, Calidad, Normas ISO, gestión de proyectos y herramientas de inteligencia artificial.
+                </p>
+                <p>
+                    La oferta permite seleccionar cursos según las actividades, los riesgos y las necesidades de cada organización, con modalidades de formación flexibles y programas personalizados por empresa, especialidad o proyecto.
+                </p>
+            </div>
+            <div class="contratistas-cta">
+                <p>📞 Solicita una propuesta corporativa adaptada a las necesidades de tu organización y de tus equipos de trabajo.</p>
+                <a href="https://wa.me/18493536710?text=Hola%2C%20quiero%20una%20propuesta%20corporativa%20para%20contratistas%20y%20subcontratistas%20de%20Fedora%20Academy" target="_blank" class="btn-whatsapp-grande">
+                    💬 Ser contactado por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN: SERVICIOS COMPLEMENTARIOS                        -->
+        <!-- ========================================================= -->
+        <div class="section-block">
+            <div class="section-title">🔧 Servicios Complementarios</div>
+            <div class="section-desc">
+                Servicios opcionales que puedes contratar junto con cualquiera de los planes corporativos, según las necesidades específicas de tu empresa.
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <h4>Diagnóstico de Brechas de Competencias</h4>
+                    <p>Evaluación inicial por escuela para identificar necesidades formativas del equipo.</p>
+                    <span class="price">USD 250</span>
+                    <a href="https://www.paypal.com/ncp/payment/PT6A2W2879SFJ" target="_blank" class="btn-service">💳 Pagar USD 250</a>
+                </div>
+                <div class="service-item">
+                    <h4>Ruta Formativa Personalizada</h4>
+                    <p>Diseño de itinerario por rol (SST, proyectos, RRHH, etc.) alineado a los objetivos del negocio.</p>
+                    <span class="price">USD 350</span>
+                    <a href="https://www.paypal.com/ncp/payment/JWW2T3E6VKUME" target="_blank" class="btn-service">💳 Pagar USD 350</a>
+                </div>
+                <div class="service-item">
+                    <h4>Taller Presencial o Virtual en Vivo</h4>
+                    <p>Sesión de 4 horas con instructor Fedora sobre un tema del catálogo.</p>
+                    <span class="price">USD 500 / taller</span>
+                    <a href="https://www.paypal.com/ncp/payment/3GATGLL687V2U" target="_blank" class="btn-service">💳 Pagar USD 500</a>
+                </div>
+                <div class="service-item">
+                    <h4>Certificación de Aprovechamiento Corporativa</h4>
+                    <p>Evaluación con proyecto práctico y certificado verificable con código QR.</p>
+                    <span class="price">USD 25 / participante</span>
+                    <a href="https://www.paypal.com/ncp/payment/Z7YYA6Q4NHFBS" target="_blank" class="btn-service">💳 Pagar USD 25</a>
+                </div>
+                <div class="service-item">
+                    <h4>Reporte Ejecutivo Trimestral</h4>
+                    <p>Dashboard de avance, KPIs y recomendaciones para la dirección.</p>
+                    <span class="price">USD 150 / trimestre</span>
+                    <a href="https://www.paypal.com/ncp/payment/TF972R7GK2W8S" target="_blank" class="btn-service">💳 Pagar USD 150</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SECCIÓN: CONDICIONES COMERCIALES                          -->
+        <!-- ========================================================= -->
+        <div class="section-block">
+            <div class="section-title">📋 Condiciones Comerciales</div>
+            <div class="conditions">
+                <ul>
+                    <li><strong>Vigencia de licencias:</strong> 12 meses desde la activación.</li>
+                    <li><strong>Modalidad:</strong> 100% online, autogestionado, con acceso a la plataforma Fedora™ Academy.</li>
+                    <li><strong>Idioma:</strong> español.</li>
+                    <li><strong>Soporte:</strong> correo y WhatsApp en horario laboral (lunes a viernes, 9:00–18:00 AST).</li>
+                    <li><strong>Facturación:</strong> pago único anual o trimestral (sin recargo).</li>
+                    <li><strong>Descuentos por volumen:</strong> a partir de 50 licencias, 10% adicional; a partir de 100 licencias, 15% adicional.</li>
+                    <li><strong>Personalización:</strong> posibilidad de adaptar contenidos a políticas internas de la empresa (costo adicional según alcance).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CTA FINAL: AGENDAR REUNIÓN                                -->
+        <!-- ========================================================= -->
+        <div class="cta-final">
+            <h2>¿Listo para transformar la formación de tu equipo?</h2>
+            <p>Agenda una reunión de 30 minutos con nuestro equipo comercial y diseñemos juntos el plan ideal para tu empresa.</p>
+            <a href="[ENLACE_CALENDLY]" target="_blank" class="btn btn-calendly">
+                📅 Agendar reunión con Calendly
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>Fedora™ Academy</strong> · Formación que transforma empresas</p>
+            <p style="margin-top: 0.8rem;">
+                <a href="mailto:fedorabueno@gmail.com">✉️ fedorabueno@gmail.com</a>
+                <a href="https://wa.me/18493536710" target="_blank">💬 WhatsApp +1 (849) 353-6710</a>
+                <a href="https://fedora-academy.lovable.app" target="_blank">🛒 Catálogo comercial</a>
+                <a href="https://fedorabueno.github.io/Fedora-Academy/" target="_blank">📚 Catálogo académico</a>
+                <a href="[ENLACE_CALENDLY]" target="_blank">📅 Calendly</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">© 2026 Fedora Academy · Todos los derechos reservados</p>
+        </div>
+
+    </div>
+</body>
+</html>
